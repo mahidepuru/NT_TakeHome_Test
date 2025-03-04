@@ -3,7 +3,6 @@ import { ManagerPage } from '../pageObjects/pages/managerPage';
 import { CreateAccountPage } from '../pageObjects/pages/createAccountPage';
 import { BasePage } from '../pageObjects/basePage';
 import { AddCustomerPage } from '../pageObjects/pages/addCustomerPage';
-import { CustomerPage } from '../pageObjects/pages/CustomerPage';
 
 test.describe('XYZ Bank customer operations ui tests', () => {
 
@@ -11,11 +10,11 @@ test.describe('XYZ Bank customer operations ui tests', () => {
     const managerPage = new ManagerPage(page);
     const addCustomerPage = new AddCustomerPage(page);
     const basePage = new BasePage(page)
-    basePage.navigation();
+    await basePage.navigation();
     await managerPage.managerAccess();
     await managerPage.clickAddCustomer();
     await addCustomerPage.addCustomer('Mahi', 'Depuru', 'DA2PZ');
-    page.locator('.btn.btn-default[type="submit"]').dispatchEvent('click');
+    await page.locator('.btn.btn-default[type="submit"]').dispatchEvent('click');
     page.on('dialog', async dialog => {
       console.log(dialog.message());
       await dialog.accept();
@@ -30,13 +29,13 @@ test.describe('XYZ Bank customer operations ui tests', () => {
     const managerPage = new ManagerPage(page);
     const addCustomerPage = new AddCustomerPage(page);
     const basePage = new BasePage(page)
-    basePage.navigation();
+    await basePage.navigation();
     await managerPage.managerAccess();
     await managerPage.clickAddCustomer();
     await addCustomerPage.addCustomer('Hermoine', 'Granger', 'E859AB');
-    page.locator('.btn.btn-default[type="submit"]').dispatchEvent('click');
+    await page.locator('.btn.btn-default[type="submit"]').dispatchEvent('click');
 
-    page.on('dialog', async dialog => {
+    page.on('dialog', async (dialog) => {
       console.log(dialog.message());
       await dialog.accept();
 
@@ -50,12 +49,12 @@ test.describe('XYZ Bank customer operations ui tests', () => {
     const managerPage = new ManagerPage(page);
     const openAccountPage = new CreateAccountPage(page);
     const basePage = new BasePage(page)
-    basePage.navigation();
-    managerPage.managerAccess();
+    await basePage.navigation();
+    await managerPage.managerAccess();
     await managerPage.clickOpenAccount();
     await openAccountPage.openAccount('Hermoine Granger', 'Dollar');
 
-    page.locator('button[type="submit"]').dispatchEvent('click');
+    await page.locator('button[type="submit"]').dispatchEvent('click');
 
     page.on('dialog', async dialog => {
       console.log(dialog.message());
@@ -70,11 +69,11 @@ test.describe('XYZ Bank customer operations ui tests', () => {
     const managerPage = new ManagerPage(page);
     const openAccountPage = new CreateAccountPage(page);
     const basePage = new BasePage(page)
-    basePage.navigation();
-    managerPage.managerAccess();
+    await basePage.navigation();
+    await managerPage.managerAccess();
     await managerPage.clickOpenAccount();
     await openAccountPage.openAccount('Hermoine Granger', 'Rupee');
-    page.locator('button[type="submit"]').dispatchEvent('click');
+    await page.locator('button[type="submit"]').dispatchEvent('click');
 
     page.on('dialog', async dialog => {
       console.log(dialog.message());
@@ -90,11 +89,11 @@ test.describe('XYZ Bank customer operations ui tests', () => {
     const managerPage = new ManagerPage(page);
     const openAccountPage = new CreateAccountPage(page);
     const basePage = new BasePage(page)
-    basePage.navigation();
-    managerPage.managerAccess();
+    await basePage.navigation();
+    await managerPage.managerAccess();
     await managerPage.clickOpenAccount();
     await openAccountPage.openAccount('Hermoine Granger', 'Pound');
-    page.locator('button[type="submit"]').dispatchEvent('click');
+    await page.locator('button[type="submit"]').dispatchEvent('click');
 
     page.on('dialog', async dialog => {
       console.log(dialog.message());
