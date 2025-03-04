@@ -10,3 +10,9 @@ Step 4 : Once clone and navigate to the location and run the below command to ru
 
 npm run test
 
+step 5: To get report , run below command
+
+npx playwright show-report
+
+
+
