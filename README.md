@@ -12,7 +12,7 @@ npm run test
 
 step 5: To get report , run below command
 
-npx playwright show-report
+npm run report
 
 
 
